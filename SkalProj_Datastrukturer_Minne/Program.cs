@@ -72,12 +72,59 @@ namespace SkalProj_Datastrukturer_Minne
              * Below you can see some inspirational code to begin working.
             */
 
-            //List<string> theList = new List<string>();
-            //string input = Console.ReadLine();
-            //char nav = input[0];
-            //string value = input.substring(1);
+            bool isAlive = true;
+            List<string> theList = new List<string>();
+            Console.WriteLine("Add or remove something to the list");
+            Console.WriteLine("+ in front adds to the list,");
+            Console.WriteLine("- removes from the list");
+            Console.WriteLine("0 to exit");
 
-            //switch(nav){...}
+            while (isAlive)
+            {
+                //for (int i = 0; i < theList.Count; i++)
+                //{
+                //    Console.WriteLine(theList[i]);                    
+                //}
+
+                Console.WriteLine("Listan innehåller " + theList.Count + " objekt");
+                Console.WriteLine("Arrayen innehåller " + theList.Capacity + " platser");
+
+                string input = Console.ReadLine();
+                char nav = input[0];
+                string value = input.Substring(1);
+
+                switch (nav)
+                {
+                    case '+':
+                        theList.Add(value);
+                        break;
+
+                    case '-':
+                        theList.Remove(value);
+                        break;
+
+                    case '0':
+                        isAlive = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("Use + or -");
+                        break;
+
+
+                }
+
+            }
+            /*
+             * 2. Listans array ökar när listan blir större än arrayen.
+             * 3. Arrayen dubbleras i storlek.
+             * 4. När arrayen ökar i storlek kopieras den till en annan plats i minnet. 
+             *    Den dubbleras för att undvika att detta görs för många gånger.
+             * 5. Nej.
+             * 6. Om man vet att man inte kommer att behöva ändra storleken fungerar en array.
+             *    I en array når man också innehållet snabbare än i en lista, och den använder
+             *    mindre minne.
+             */
         }
 
         /// <summary>
