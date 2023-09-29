@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Diagnostics;
 
 namespace SkalProj_Datastrukturer_Minne
 {
@@ -135,8 +137,50 @@ namespace SkalProj_Datastrukturer_Minne
             /*
              * Loop this method untill the user inputs something to exit to main menue.
              * Create a switch with cases to enqueue items or dequeue items
-             * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
+             * Make sure to look at the queue after Enqueueing and Dequeueing 
+             * to see how it behaves
             */
+
+            bool isAlive = true;
+            Queue myQueue = new Queue();
+            Console.WriteLine("Add a person to the queue");
+            Console.WriteLine("- to remove a person from the queue");
+            Console.WriteLine("0 to exit");
+                      
+            while (isAlive)
+            {
+                Console.WriteLine("\nthe queue contains " + myQueue.Count + " objects");
+
+                string obj = Console.ReadLine();
+
+                switch (obj)
+                {
+                    case "0":
+                        isAlive = false;
+                        break;
+
+                    case "-":
+                        if (myQueue.Count > 0)
+                        {
+                            myQueue.Dequeue();
+                        }
+                        else
+                        {
+                            Console.WriteLine("The queue is empty");
+                        }
+                        break;
+
+                    default:
+                        myQueue.Enqueue(obj);
+                        break;                        
+                }
+
+                Console.WriteLine("\t\tThe queue:");
+                foreach (Object item in myQueue)
+                {
+                    Console.WriteLine("\t\t" + item);
+                }
+            }
         }
 
         /// <summary>
