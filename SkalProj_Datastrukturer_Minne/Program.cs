@@ -6,6 +6,23 @@ namespace SkalProj_Datastrukturer_Minne
 {
     class Program
     {
+        // Frågor:
+        // 1. Stacken är snabb och lagrar enligt principen last in first out.
+        // Innehållet rensas ut automatiskt efter användandet.
+        // I heapen är all data tillgänglig. Den behöver rensas med hjälp av
+        // garbage collectorn. Objekt som skapas med hjälp av "new" Hamnar i heapen.
+        // 
+        // 2.Value types är typer från System.ValueType, exempelvis bool, char, int.
+        // De lagras där de deklareras. Reference types lagras alltid på heapen. 
+        // De lagrar en referens till datan.
+        //
+        // 3. I ReturnValue2, när man skriver att y = x, betyder det att
+        // x och y kommer att dela referensen till heapen. Sätter man
+        // y till 4 kommer x också att bli 4.
+
+
+
+
         /// <summary>
         /// The main method, vill handle the menues for the program
         /// </summary>
@@ -15,7 +32,7 @@ namespace SkalProj_Datastrukturer_Minne
 
             while (true)
             {
-                Console.WriteLine("Please navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
+                Console.WriteLine("\nPlease navigate through the menu by inputting the number \n(1, 2, 3 ,4, 0) of your choice"
                     + "\n1. Examine a List"
                     + "\n2. Examine a Queue"
                     + "\n3. Examine a Stack"
@@ -146,7 +163,7 @@ namespace SkalProj_Datastrukturer_Minne
             Console.WriteLine("Add a person to the queue");
             Console.WriteLine("- to remove a person from the queue");
             Console.WriteLine("0 to exit");
-                      
+
             while (isAlive)
             {
                 Console.WriteLine("\nthe queue contains " + myQueue.Count + " objects");
@@ -172,7 +189,7 @@ namespace SkalProj_Datastrukturer_Minne
 
                     default:
                         myQueue.Enqueue(obj);
-                        break;                        
+                        break;
                 }
 
                 Console.WriteLine("\t\tThe queue:");
@@ -191,20 +208,42 @@ namespace SkalProj_Datastrukturer_Minne
             /*
              * Loop this method until the user inputs something to exit to main menue.
              * Create a switch with cases to push or pop items
-             * Make sure to look at the stack after pushing and and poping to see how it behaves
+             * Make sure to look at the stack after pushing and and poping 
+             * to see how it behaves
             */
+
+            Stack myStack = new Stack();
+            Console.WriteLine("Write something to reverse it");
+            Console.WriteLine("0 to exit");
+
+
+            String message = Console.ReadLine();
+            for (int i = 0; i < message.Length; i++)
+            {
+                string letter = message.Substring(i, 1);
+                myStack.Push(letter);
+            }
+
+            foreach (string letter in myStack)
+            {
+                Console.Write(letter);
+                //Jag använde från början Console.Write(myStack.Pop());här,
+                //men det fungerade inte. Jag vet inte varför.
+            }
         }
 
-        static void CheckParanthesis()
-        {
-            /*
-             * Use this method to check if the paranthesis in a string is Correct or incorrect.
-             * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };
-             * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
-             */
+
+
+            static void CheckParanthesis()
+            {
+                /*
+                 * Use this method to check if the paranthesis in a string is Correct or incorrect.
+                 * Example of correct: (()), {}, [({})],  List<int> list = new List<int>() { 1, 2, 3, 4 };
+                 * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
+                 */
+
+            }
 
         }
-
     }
-}
 
