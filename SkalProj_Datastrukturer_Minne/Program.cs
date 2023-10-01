@@ -242,6 +242,14 @@ namespace SkalProj_Datastrukturer_Minne
                  * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
                  */
 
+                 // Min ide är att använda en stack, och mata in tecknen i strängen om det
+                 // är en parentes. Öppnande paranteser kan matas in hur många som helst,
+                 // men när det kommer en stängande parentes jämförs den med parentesen innan.
+                 // Om parentesen innan är en öppnande av samma typ tas de två parenteserna
+                 // bort och inmatningen fortsätter. Är den öppnande parentesen av en annan typ
+                 // är strängen inte välformad. När hela strängen är genomgången ska stacken
+                 // vara tom, annars är är stacken inte välformad.
+
             }
 
         }
